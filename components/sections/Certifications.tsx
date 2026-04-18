@@ -1,13 +1,14 @@
 "use client";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import Image from "next/image";
 
 const CERTS = [
-  { label: "Meta Business Partner", w: 120, h: 40 },
-  { label: "Shopify Partner", w: 120, h: 40 },
-  { label: "AiSensy", w: 100, h: 40 },
-  { label: "Razorpay Partner", w: 120, h: 40 },
-  { label: "Cashfree Payments", w: 120, h: 40 },
+   { label: "AiSensy", w: 160, h: 60, image: "/certs/aisensy.svg" },
+  { label: "Cashfree Payments", w: 160, h: 60, image: "/certs/cashfree.svg" },
+  { label: "Meta Business Partner", w: 160, h: 60, image: "/certs/meta.svg" },
+  { label: "Razorpay Partner", w: 160, h: 60, image: "/certs/razorpay.svg" },
+  { label: "Shopify Partner", w: 160, h: 60, image: "/certs/shopify.svg" },
 ];
 
 export default function Certifications() {
@@ -16,9 +17,9 @@ export default function Certifications() {
 
   return (
     <section
-      className="py-16 border-t border-b border-[var(--border)]"
-      style={{ backgroundColor: "var(--bg-secondary)" }}
-    >
+  className="py-16 border-t border-b border-[var(--border)]"
+  style={{ backgroundColor: "#FFFFFF" }}  // ← change karo
+>
       <div className="container-main">
         <p className="text-label text-center mb-8">Our services are certified by</p>
 
@@ -30,29 +31,22 @@ export default function Certifications() {
           className="flex flex-wrap items-center justify-center gap-10"
         >
           {CERTS.map((cert) => (
-            <div
-              key={cert.label}
-              className="relative flex items-center justify-center border border-dashed border-[#2a2a2a] hover:border-[var(--accent)] transition-all duration-300 group"
-              style={{
-                width: cert.w,
-                height: cert.h,
-                filter: "grayscale(1)",
-                opacity: 0.5,
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLDivElement).style.filter = "grayscale(0)";
-                (e.currentTarget as HTMLDivElement).style.opacity = "1";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLDivElement).style.filter = "grayscale(1)";
-                (e.currentTarget as HTMLDivElement).style.opacity = "0.5";
-              }}
-            >
-              <span className="font-mono-custom text-[9px] text-center px-1" style={{ color: "#555" }}>
-                {cert.label}
-              </span>
-            </div>
-          ))}
+  <div
+    key={cert.label}
+    className="relative"
+    style={{
+      width: cert.w,
+      height: cert.h,
+    }}
+  >
+    <Image
+      src={cert.image}
+      alt={cert.label}
+      fill
+      className="object-contain"
+    />
+  </div>
+))}
         </motion.div>
       </div>
     </section>

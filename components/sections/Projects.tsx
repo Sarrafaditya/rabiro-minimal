@@ -19,18 +19,17 @@ function ProjectCard({ title, category, large, image }: {
       
       {/* ← now uses each card's own image/video */}
       {image.endsWith(".mp4") ? (
-        <video
-          src={image}
-          poster="/video-thumb.jpg"
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-      ) : (
-        <Image src={image} alt={title} fill className="object-cover" />
-      )}
+  <div className="absolute inset-0">
+    <Image
+      src="/video-thumb.jpg"
+      alt={title}
+      fill
+      className="object-cover"
+    />
+  </div>
+) : (
+  <Image src={image} alt={title} fill className="object-cover" />
+)}
 
       <motion.div className="absolute inset-0 flex flex-col justify-end p-6" initial={{ y: "100%" }} animate={{ y: hovered ? "0%" : "100%" }} transition={{ duration: 0.3, ease: "easeOut" }} style={{ backgroundColor: "var(--accent)" }}>
         <p className="font-syne font-bold text-2xl text-white">{title}</p>

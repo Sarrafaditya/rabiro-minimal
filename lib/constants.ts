@@ -144,9 +144,9 @@ export const PROCESS_STEPS = [
 
   export const PROJECTS = [
   { title: "Mhari — Shopify Store", category: "Web Development", large: true, image: "/mhari.jpg" },
-  { title: "Generic Aadhaar", category: "Video Editing", large: false, image: "/generic-aadhaar.mp4" },
-  { title: "EgNog — Brand Identity", category: "Graphic Design", large: false, image: "/egnog.jpg" },
-  { title: "Zedital Media — Agency Site", category: "Web Development", large: true, image: "/zedital.jpg" },
+  { title: "Generic Aadhaar", category: "Video Editing", large: false, image: "/video-thumb.jpg" }, 
+  { title: "JeevRasa — Brand Identity", category: "Graphic Design", large: false, image: "/graphic.jpg" },
+  { title: "Zedital Media — Agency Site", category: "Web Development", large: true, image: "/mhari.jpg" },
 ];
 
 export const ABOUT = {

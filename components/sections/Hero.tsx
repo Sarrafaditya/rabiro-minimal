@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { HERO } from "@/lib/constants";
 import { staggerContainer, fadeUpItem } from "@/lib/animations";
@@ -7,7 +8,7 @@ import { staggerContainer, fadeUpItem } from "@/lib/animations";
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-grid" style={{ backgroundColor: "var(--bg-primary)" }}>
-      <div className="absolute top-20 left-20 w-0.5 h-16 bg-[var(--accent)]" />
+      <div className="hidden md:block absolute top-20 left-20 w-0.5 h-16 bg-[var(--accent)]" />
       <div className="container-main w-full py-32 pt-40">
         <div className="grid lg:grid-cols-[65%_35%] gap-12 items-center">
           {/* Left */}
@@ -28,10 +29,23 @@ export default function Hero() {
                 {HERO.cta2.label}
               </Link>
             </motion.div>
+
+            {/* Client circles */}
             <motion.div variants={fadeUpItem} className="flex items-center gap-4 mt-12 pt-6 border-t border-[var(--border)]">
               <div className="flex">
-                {[1, 2, 3].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-[var(--bg-primary)] -ml-3 first:ml-0" style={{ backgroundColor: `hsl(${i * 40}, 20%, 30%)` }} />
+                {[
+                  "/clients/client1.jpg",
+                  "/clients/client2.jpg",
+                  "/clients/client3.jpg",
+                ].map((src, i) => (
+                  <div key={i} className="relative w-10 h-10 rounded-full border-2 border-[var(--bg-primary)] overflow-hidden -ml-3 first:ml-0">
+                    <Image
+                      src={src}
+                      alt={`Client ${i + 1}`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
                 ))}
               </div>
               <div>
