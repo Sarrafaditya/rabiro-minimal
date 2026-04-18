@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-primary: #0A0A0A;
+    --bg-secondary: #111111;
+    --bg-tertiary: #1A1A1A;
+    --bg-inverse: #F5F0EB;
+    --accent: #E8521A;
+    --accent-dim: rgba(232, 82, 26, 0.13);
+    --accent-hover: #FF6B35;
+    --text-primary: #F5F0EB;
+    --text-secondary: #A0998F;
+    --text-muted: #4A4540;
+    --text-inverse: #0A0A0A;
+    --border: #1F1F1F;
+    --border-accent: rgba(232, 82, 26, 0.27);
+    --font-syne: var(--font-geist-sans);        /* Geist — titles */
+    --font-dm-sans: var(--font-geist-sans);     /* Geist — body too */
+    --font-space-mono: var(--font-geist-mono);  /* Geist Mono — labels/tags */
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-dm-sans);
+    overflow-x: hidden;
+    cursor: none;
+  }
+  ::selection { background: var(--accent); color: white; }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg-primary); }
+  ::-webkit-scrollbar-thumb { background: var(--border); }
+  ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+  a { cursor: none; }
+  button { cursor: none; }
+}
+
+@layer utilities {
+  .text-display-xl {
+    font-family: var(--font-syne);
+    font-weight: 800;
+    font-size: clamp(52px, 7.5vw, 110px);
+    line-height: 0.92;
+    letter-spacing: -0.03em;
+  }
+  .text-display-lg {
+    font-family: var(--font-syne);
+    font-weight: 800;
+    font-size: clamp(38px, 5.5vw, 76px);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+  }
+  .text-display-md {
+    font-family: var(--font-syne);
+    font-weight: 700;
+    font-size: clamp(26px, 3.8vw, 50px);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+  }
+  .text-label {
+    font-family: var(--font-space-mono);
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .font-syne { font-family: var(--font-syne); }
+  .font-dm { font-family: var(--font-dm-sans); }
+  .font-mono-custom { font-family: var(--font-space-mono); }
+  .bg-grid {
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .outline-text { color: transparent; -webkit-text-stroke: 1px #1F1F1F; }
+  .section-padding { padding-top: 120px; padding-bottom: 120px; }
+  .container-main {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .container-main { padding-left: 40px; padding-right: 40px; }
+}
+@media (max-width: 767px) {
+  .container-main { padding-left: 20px; padding-right: 20px; }
+  .section-padding { padding-top: 60px; padding-bottom: 60px; }
+}
